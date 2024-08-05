@@ -1,0 +1,35 @@
+﻿@model User
+@{
+	ViewData["Title"] = "Create user";
+}
+<div class="columns">
+
+		<div class="column is-10 is-offset-1">
+			<form method="post" asp-controller="Create" asp-action="Check">
+
+					<div class="input-field">
+						<label class="field">
+							<input asp-for="Name" type="text" class="input" name="name" placeholder="name">
+						</label>						
+					</div>
+
+					<div class="input-field">
+						<label class="field">
+							<input asp-for="Password" type="password" class="input" name="password" placeholder="password">
+						</label>						
+					</div>
+
+					<div class="input-field">
+						<label class="field">
+							<input asp-for="Email" type="text" class="input" name="email" placeholder="email">
+						</label>						
+					</div>
+
+					<label class="field">
+						<input type="submit" name="submit" class="button is-primary">			
+					</label>
+
+			</form>	
+			<a asp-controller="Home" asp-action="">View all users</a>		
+		</div>
+	</div>

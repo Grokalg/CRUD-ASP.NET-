@@ -1,0 +1,45 @@
+﻿@{
+	ViewData["Title"] = "Profile";
+}
+@model User
+
+	<div class="columns">
+		<div class="column is-10 is-offset-1">
+			<table class="table is-striped">
+
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>Username</th>
+						<th>Password</th>
+						<th>Email</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<th>@Model.Id</th>
+						<th>@Model.Name</th>
+						<th>@Model.Password</th>
+						<th>@Model.Email</th>
+						<th>
+							<form method="post" asp-controller="Profile" asp-action="Edit">
+								<input asp-for="@Model.Id" type="hidden">
+							@* <a>View Profile</a> *@
+								<button>Edit user</button>
+							</form>
+							@* <a href="{{ url('/users/' . $users->id . '/edit')}}">Edit user</a> *@
+						</th>
+					</tr>
+				</tbody>
+
+			</table>
+
+			<div>
+				<a asp-controller="Home">View all users</a>		
+			</div>
+			<a asp-controller="Create">Create a new user</a>
+
+		</div>
+	</div>

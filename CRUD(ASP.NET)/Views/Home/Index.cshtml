@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Users";
+}
+@model List<User>
+
+<div class="columns">
+		<div class="column is-10 is-offset-1">
+			<table class="table is-striped">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>User</th>
+						<th>Password</th>
+						<th>Email</th>
+						<th>Profile</th>
+						<th>Destroy</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					@foreach(var user in Model)
+					{
+						<tr>
+
+									<th>
+										@user.Id
+									</th>
+
+									<th>
+										@user.Name
+									</th>
+
+									<th>
+										@user.Password
+									</th>
+
+									<th>
+										@user.Email
+									</th>
+
+									<th>
+										<form method="post" asp-controller="Profile">
+											<input asp-for="@user.Id" type="hidden">
+											@* <a>View Profile</a> *@
+											<button>View Profile</button>
+										</form>
+									</th>
+
+									<th>
+
+										<form method="post" asp-controller="Delete">
+											<input asp-for="@user.Id" type="hidden">
+											<button class="button is-small is-danger">X</button>
+										</form>
+
+									</th>
+						</tr> 
+					}			
+				</tbody>
+			</table>
+
+			<a asp-controller="Create" asp-action="">Create new user</a>
+
+		</div>
+	</div>
