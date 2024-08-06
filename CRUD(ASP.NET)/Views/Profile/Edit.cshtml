@@ -9,21 +9,23 @@
 
 			<form asp-controller="Profile" asp-action="Check" method="post">
 
+					<input asp-for="Id" type="hidden" class="input" name="Id" value="@Model.Id" />	
+
 					<div class="input-field">
 						<label class="field">
-							<input type="text" class="input" name="name" value="@Model.Name"></>
+							<input asp-for="Name" type="text" class="input" name="name" value="@Model.Name"></>
 						</label>						
 					</div>
 	
 					<div class="input-field">
 						<label class="field">
-							<input type="password" class="input" name="password" value="@Model.Email">
+							<input asp-for="Password" type="password" class="input" name="password" value="@Model.Email">
 						</label>						
 					</div>
 			
 					<div class="input-field">
 						<label class="field">
-							<input type="text" class="input" name="email" value="@Model.Email">
+							<input asp-for="Email" type="text" class="input" name="email" value="@Model.Email">
 						</label>						
 					</div>
 			
@@ -32,6 +34,6 @@
 					</label>
 
 			</form>	
-			<a asp-controller="Home" asp-action="">View all users</a>		
+			<a asp-controller="Home" asp-action="Index">View all users</a>		
 		</div>
 	</div>
